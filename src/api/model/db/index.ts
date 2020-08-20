@@ -24,8 +24,7 @@ export default class databaseIndex {
             case 'userModel':
                 return await this.userModel.findUser(
                     {
-                        'username': _.get(obj, 'username'), 
-                        'password': _.get(obj, 'password')
+                        'username': _.get(obj, 'username')
                     });
             default: 
                 break;
@@ -52,7 +51,11 @@ export default class databaseIndex {
     public async delete(obj: any) {
         switch(this._type) {
             case 'userModel':
-                return await this.userModel.deleteUser(obj);
+                return await this.userModel.deleteUser(
+                    {
+                        'username': _.get(obj, 'username'), 
+                        'password': _.get(obj, 'password')
+                    });
             default: 
                 break;
         }

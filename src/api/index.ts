@@ -15,6 +15,13 @@ export default class Router {
   loadRouters(app: Application) {
     let router = newRouter();
     try {
+      router.post(`/createRoute`, async (req, res) => {
+        return this.controller.create(req, res);
+      });
+    } catch (err) {
+      throw err;
+    }
+    try {
       router.get(`/findRoute`, async (req, res) => {
         return this.controller.find(req, res);
       });
@@ -23,14 +30,19 @@ export default class Router {
       throw err;
     }
     try {
-      router.post(`/createRoute`, async (req, res) => {
-        return this.controller.create(req, res);
+      router.patch(`/updateRoute`, async (req, res) => {
+        return this.controller.update(req, res);
       });
     } catch (err) {
       throw err;
     }
-    // router.delete(`/deleteRoute`, this.controller.delete);
-    // router.patch(`/updateRoute`, this.controller.update);
+    try {
+      router.delete(`/deleteRoute`, async (req, res) => {
+        return this.controller.delete(req, res);
+      });
+    } catch (err) {
+      throw err;
+    }
 
     app.use('/api', router);
     return router;

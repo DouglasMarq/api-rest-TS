@@ -31,15 +31,19 @@ export default class Controller {
     }
 
     async update(req: Request, res: Response) {
-        //@TODO change from request type to internal type
-        switch(req.body.type) {
+        //@TODO change from request type to internal type        
+        switch (req.body.type) {
+            case 'user':
+                return await this.userController.updateUser(req.body, res);
             default:
                 break;
         }
     }
     async delete(req: Request, res: Response) {
         //@TODO change from request type to internal type
-        switch(req.body.type) {
+        switch (req.body.type) {
+            case 'user':
+                return await this.userController.deleteUser(req.body, res);
             default:
                 break;
         }

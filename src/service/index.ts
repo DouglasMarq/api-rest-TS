@@ -11,20 +11,17 @@ export default class Service<T> {
 
   public async getBaseEntity(obj: any) {
     return await this.db.find(obj);
-    // return new Promise<any>((resolve, reject) => {
-    //   if (this.res) {
-    //     reject({ error: this.res.error?.details[0].message });
-    //   }
-    //   resolve(model(this.type, new Schema(obj)));
-    // });
   }
+
   public async createBaseEntity(obj: any) {
     return await this.db.create(obj);
-    // return new Promise<any>((resolve, reject) => {
-    //   if (this.res) {
-    //     reject({ error: this.res.error?.details[0].message });
-    //   }
-    //   resolve(model(this.type, new Schema(obj)));
-    // });
+  }
+  
+  public async updateBaseEntity(obj: any) {
+    return await this.db.update(obj);
+  }
+  
+  public async deleteBaseEntity(obj: any) {
+    return await this.db.delete(obj);
   }
 }

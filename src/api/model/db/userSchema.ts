@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import * as _ from 'lodash';
 
 const userMod = model('users', new Schema({
   username: String,
@@ -27,15 +28,22 @@ export default class userModel {
   }
 
   updateUser(obj: any) { 
-    return userMod.update(obj, {
+    return userMod.updateOne(
+    {
+      'username': _.get(obj, 'username')
+    }, {
       '$set': {
-        'username': 'teste12'
+        'password': _.get(obj, 'password')
       },
       'safe': true, 'upsert': true, 'new': true
     });
   }
 
   deleteUser(obj: any) { 
+    return userMod.deleteOne(obj);
+  }
+
+  deleteUserById(obj: any) { 
     return userMod.findByIdAndDelete(obj);
   }
   
