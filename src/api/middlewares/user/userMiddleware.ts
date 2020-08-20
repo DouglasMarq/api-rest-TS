@@ -1,7 +1,11 @@
-import userModel from "../../model/db/userSchema";
+// import userModel from "../../model/db/userSchema";
 
-export default class userMiddleware extends userModel {
+export default class userMiddleware {
     constructor() {
-        super();
+        // super();
     }    
+
+    async validateUser() {
+        
+    }
 }

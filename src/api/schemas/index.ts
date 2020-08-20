@@ -25,11 +25,11 @@ export default class Schemas<T> {
 //       }
 //   }
 
-    validateCreateSchema(object: any) {
-        return create.validateSchema().validate(object);
+    validateCreateSchema(user: string, pass: string) {
+        return create.validateSchema().validate({username: user, password: pass});
     }
-    validateFindSchema(username: string) {
-        return find.validateSchema().validate({username: username});
+    validateFindSchema(user: string) {
+        return find.validateSchema().validate({username: user});
     }
     validateUpdateSchema() {
         return update;

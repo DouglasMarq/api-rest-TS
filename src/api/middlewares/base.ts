@@ -1,8 +1,8 @@
 import { injectable } from "inversify";
 
 @injectable()
-export default class BaseMiddleware<T>{
-    constructor(type: new() => T) {
+export default class BaseMiddleware{
+    constructor() {
 
     }
     public async validateBaseEntity(obj: any) {

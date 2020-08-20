@@ -2,7 +2,7 @@ const baseUrl = {
   uri: '/api'
 }
 
-export default {
+export = {
   "database": {
     "main": {
       "host": process.env.DB_HOST || "cluster0-twaan.gcp.mongodb.net",

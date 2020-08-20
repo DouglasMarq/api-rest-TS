@@ -22,7 +22,13 @@ export default class Router {
     catch (err) {
       throw err;
     }
-    // router.post(`/createRoute`, this.controller.create);
+    try {
+      router.post(`/createRoute`, async (req, res) => {
+        return this.controller.create(req, res);
+      });
+    } catch (err) {
+      throw err;
+    }
     // router.delete(`/deleteRoute`, this.controller.delete);
     // router.patch(`/updateRoute`, this.controller.update);
 
