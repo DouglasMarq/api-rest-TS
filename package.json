@@ -1,10 +1,10 @@
 {
-  "name": "server",
+  "name": "me-ar-nstarter",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "description": "A ME(A/R)N Stack (Mongo, Express, Angular or React, Node) simple application template",
+  "main": "dist/bin/index.js",
   "scripts": {
-    "start": "npm run build && node ./dist/index.js",
+    "start": "npm run build && node ./dist/bin/index.js",
     "clean": "rm -Rf ./dist",
     "build": "npm run clean && tsc && cp ./src/.env ./dist/.env",
     "build2": "npm run clean && tsc && cp ./src/.env ./dist/.env && cp -R ./src/storage ./dist",
@@ -14,9 +14,25 @@
     "test-watch": "tsc-watch --onSuccess \"npm test\"",
     "seed": "node ./dist/bin/seeder"
   },
-  "author": "",
-  "license": "ISC",
-  "type": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DouglasMarq/MEAN-Starter"
+  },
+  "keywords": [
+    "mean",
+    "template",
+    "angular",
+    "node",
+    "express",
+    "simple",
+    "github"
+  ],
+  "author": "Douglas Marques <douglas.marq.alves@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DouglasMarq/MEAN-Starter/issues"
+  },
+  "homepage": "https://github.com/DouglasMarq/MEAN-Starter#readme",
   "devDependencies": {
     "@types/node": "^14.6.0",
     "typescript": "^3.9.7"

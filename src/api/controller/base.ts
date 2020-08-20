@@ -1,6 +1,4 @@
 import Service from "../../service";
-import { injectable } from "inversify";
-
 
 export default class BaseController<T> extends Service<T> {
     constructor(type: new () => T) {
