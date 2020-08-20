@@ -1,15 +1,13 @@
-'use strict'
-
 import { injectable } from "inversify";
 import { connection, connect, disconnect } from 'mongoose';
-import config from "config";
+import config from "../config/default";
 
 @injectable()
 export default class Mongo {
   constructor() {    
     console.log("Conectando ao MongoDB");
     connection.on('error', console.error.bind(console, 'connection error:'));
-    connect(`mongodb+srv://${config.get('database.main.user')}:${config.get('database.main.pass')}@${config.get('database.main.host')}/${config.get('database.main.name')}?retryWrites=true&w=majority`,{
+    connect(`mongodb+srv://${config.database.main.user}:${config.database.main.pass}@${config.database.main.host}/${config.database.main.name}?retryWrites=true&w=majority`,{
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
@@ -19,7 +17,7 @@ export default class Mongo {
         console.log(err);
         disconnect();
       } else {
-        console.log(`MongoDB succesfully started at port ${config.get('database.main.port')}`)
+        console.log(`MongoDB succesfully started at port ${config.database.main.port}`)
       }
     });
   }

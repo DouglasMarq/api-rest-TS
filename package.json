@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node ./dist/index.js",
+    "start": "npm run build && node ./dist/index.js",
     "clean": "rm -Rf ./dist",
     "build": "npm run clean && tsc && cp ./src/.env ./dist/.env",
     "build2": "npm run clean && tsc && cp ./src/.env ./dist/.env && cp -R ./src/storage ./dist",
@@ -16,6 +16,7 @@
   },
   "author": "",
   "license": "ISC",
+  "type": "",
   "devDependencies": {
     "@types/node": "^14.6.0",
     "typescript": "^3.9.7"
@@ -38,6 +39,7 @@
     "inversify": "^5.0.1",
     "joi": "^17.2.0",
     "mongoose": "^5.10.0",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^8.10.2"
   }
 }

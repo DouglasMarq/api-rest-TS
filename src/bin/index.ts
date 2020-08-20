@@ -1,12 +1,16 @@
 
-import config from "config";
+import config from "../config/default";
 import Server from "../server/index";
 import container from "../bin/container";
+import Mongo from "../database";
 
-(async () => {
+export const start = () => {
     container.loadContainers();
-    container.getContainer().get<Server>(Server).listen(config.get("server.port"));
+    //Inicialização HTTP
+    container.getContainer().get<Server>(Server).listen((config.server.port as number));
+    //Inicialização mongo
+    container.getContainer().get<Mongo>(Mongo);
 
-})().catch(err => {
-    console.error(err);
-});
+};
+
+export default start();
