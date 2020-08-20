@@ -3,7 +3,7 @@ import { Container } from "inversify";
 import Server from '../server';
 import Router from '../api'
 import Mongo from '../database';
-import databaseIndex from '../api/model/db';
+import Middleware from '../api/middlewares';
 
 let container = new Container();
 
@@ -12,7 +12,6 @@ export class bindContainers {
         container.bind<Server>(Server).to(Server).inSingletonScope();
         container.bind<Router>(Router).to(Router).inSingletonScope();
         container.bind<Mongo>(Mongo).to(Mongo).inSingletonScope();
-        container.bind<databaseIndex>(databaseIndex).to(databaseIndex).inSingletonScope();
     }
 
     getContainer() {

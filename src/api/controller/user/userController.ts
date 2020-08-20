@@ -10,7 +10,7 @@ export default class UserController extends BaseController<UserSchema> {
     public async findUser(req: Request, res: Response) {  
         console.log(req);
         try {
-            return res.status(200).json({'message:': await this.getEntity(req)});;
+            return res.status(200).json({'message:': await this.getEntity(req)});
         } catch (e) {
             return res.status(404).json({'message': e.message, 'stack': e.stack});
         }

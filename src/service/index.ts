@@ -1,4 +1,3 @@
-import userModel from "../api/model/db/userSchema";
 import databaseIndex from "../api/model/db";
 
 export default class Service<T> {

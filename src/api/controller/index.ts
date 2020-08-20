@@ -4,14 +4,14 @@ import UserController from "./user/userController";
 
 @injectable()
 export default class Controller {
-    private userController: UserController;
+    private readonly userController: UserController;
 
     constructor() {
         this.userController = new UserController();
     }
 
     async create(req: Request, res: Response) {
-        //change from request type to internal type
+        //@TODO change from request type to internal type
         switch(req.body.type) {
             case 'user':
                 return await this.userController.createUser(req.body, res);
@@ -21,7 +21,7 @@ export default class Controller {
     }
 
     async find(req: Request, res: Response) {
-        //change from request type to internal type
+        //@TODO change from request type to internal type
         switch (req.body.type) {
             case 'user':
                 return await this.userController.findUser(req.body, res);
@@ -31,14 +31,14 @@ export default class Controller {
     }
 
     async update(req: Request, res: Response) {
-        //change from request type to internal type
+        //@TODO change from request type to internal type
         switch(req.body.type) {
             default:
                 break;
         }
     }
     async delete(req: Request, res: Response) {
-        //change from request type to internal type
+        //@TODO change from request type to internal type
         switch(req.body.type) {
             default:
                 break;

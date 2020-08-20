@@ -1,40 +1,34 @@
 import 'reflect-metadata';
-import findSchema from './findSchema';
-import createSchema from './createSchema';
-import deleteSchema from './deleteSchema';
-import updateSchema from './updateSchema';
-
-const find = new findSchema;
-const create = new createSchema;
-const update = new updateSchema;
-const remove = new deleteSchema;
+import userSchema from './user/userSchema';
+import { response } from 'express';
+import * as _ from "lodash";
+import { isNullOrUndefined } from 'util';
 
 export default class Schemas<T> {
-//     private readonly type: string;
-//   constructor(type: new() => T) {
-//     switch(type.name) {
-//         case 'UserSchema':
-//           this.type = 'user';
-//           break;
-//           // case 'xptomodel':
-//           //   return 'xpto'
-//           //break;
-//         default:
-//           this.type = type.name;
-//           break;
-//       }
-//   }
-
-    validateCreateSchema(user: string, pass: string) {
-        return create.validateSchema().validate({username: user, password: pass});
+  private readonly user: userSchema = new userSchema();
+  private readonly _type: string;
+  constructor(type: new() => T) {
+    console.log('type in schema', type, type.name);
+    switch(type.name) {
+      case 'userModel':
+        this._type = 'user';
+        break;
+      default:
+        //transferir para próprio dps
+        this._type = type.name;
+        break;
     }
-    validateFindSchema(user: string) {
-        return find.validateSchema().validate({username: user});
-    }
-    validateUpdateSchema() {
-        return update;
-    }
-    validateDeleteSchema() {
-        return remove;
+  }
+    async validateSchema(obj: any) {
+        switch(this._type) {
+            case 'user':
+              let validate = {
+                'username': _.get(obj, 'username'),
+                'password': _.get(obj, 'password')
+              }
+              return await this.user.validateSchema().validate(validate).error?.details[0].message;
+            default:
+              return response.status(404).json({'message:': 'Could not find schema type.'});
+        }
     }
 }

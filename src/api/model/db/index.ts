@@ -1,5 +1,6 @@
 import { injectable } from "inversify";
 import userModel from "./userSchema";
+import * as _ from 'lodash';
 
 @injectable()
 export default class databaseIndex {
@@ -21,10 +22,11 @@ export default class databaseIndex {
     public async find(obj: any) {
         switch(this._type) {
             case 'userModel':
-                let format = {
-                    'username': obj['username']
-                }
-                return await this.userModel.findUser(format);
+                return await this.userModel.findUser(
+                    {
+                        'username': _.get(obj, 'username'), 
+                        'password': _.get(obj, 'password')
+                    });
             default: 
                 break;
         }
