@@ -2,16 +2,17 @@ import { Schema, model } from "mongoose";
 import * as _ from 'lodash';
 
 const userMod = model('users', new Schema({
-  username: String,
-  password: String,
-  dateOfEntry: {
-    type: Date,
-    default: new Date()
+  'username': {'type': String, 'required': true, 'index': true, 'unique': true},
+  'password': String,
+  'createdAt': {
+    'type': Date,
+    'default': new Date()
   },
-  lastUpdated: {
-    type: Date,
-    default: new Date()
-  }
+  'updatedAt': {
+    'type': Date,
+    'default': new Date()
+  },
+  'email': {'type': String, 'required': true, 'index': true, 'unique': true}
 }));
 
 export default class userModel {

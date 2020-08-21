@@ -1,6 +1,7 @@
 import { injectable } from "inversify";
 import userModel from "./userSchema";
 import * as _ from 'lodash';
+import { threadId } from "worker_threads";
 
 @injectable()
 export default class databaseIndex {
@@ -24,7 +25,10 @@ export default class databaseIndex {
             case 'userModel':
                 return await this.userModel.findUser(
                     {
-                        'username': _.get(obj, 'username')
+                        '$or': [
+                            {'username': _.get(obj, 'username')},
+                            {'email': _.get(obj, 'email')}
+                        ]                        
                     });
             default: 
                 break;

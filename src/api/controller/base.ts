@@ -36,10 +36,10 @@ export default class BaseController<T> extends Service<T> {
     }
 
     public async createEntity(obj: any) {
-        // ir para middleware para validação maiss tarde
+        // ir para middleware para validação mais tarde
         let res = await this.middleware.validadeEntity(obj);
         if (res) {
-            return res;
+            return {'code': 403, 'message': res};
         }
         // vai para a service
         console.log("indo para a service");
@@ -51,7 +51,7 @@ export default class BaseController<T> extends Service<T> {
     }
     
     public async updateEntity(obj: any) {
-        // ir para middleware para validação maiss tarde
+        // ir para middleware para validação mais tarde
         let res = await this.middleware.validadeEntity(obj);
         if (res) {
             return res;
@@ -66,7 +66,7 @@ export default class BaseController<T> extends Service<T> {
     }
     
     public async deleteEntity(obj: any) {
-        // ir para middleware para validação maiss tarde
+        // ir para middleware para validação mais tarde
         let res = await this.middleware.validadeEntity(obj);
         if (res) {
             return res;
