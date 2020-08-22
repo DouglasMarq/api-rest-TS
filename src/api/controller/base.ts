@@ -8,16 +8,6 @@ export default class BaseController<T> extends Service<T> {
         console.log('type in basecontroller', type, type.name);
         super(type);
         this.middleware = new Middleware<T>(type);
-        // switch (type.name) {
-        //   case 'userModel':
-        //     this._type = 'user';
-        //     // this.res = null;
-        //     break;
-        //   default:
-        //     this._type = type.name;
-        //     // this.res = null;
-        //     break;
-        // }
     }
 
     public async getEntity(obj: any) {
