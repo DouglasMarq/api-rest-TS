@@ -43,7 +43,6 @@ export default class databaseIndex {
                 break;
         }
     }
-    
     public async update(obj: any) {
         switch(this._type) {
             case 'userModel':
