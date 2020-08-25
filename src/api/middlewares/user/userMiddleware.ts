@@ -1,11 +1,9 @@
 // import userModel from "../../model/db/userSchema";
 
 export default class userMiddleware {
-    constructor() {
-        // super();
-    }    
+  constructor() {
+    // super();
+  }
 
-    async validateUser() {
-        
-    }
+  async validateUser() {}
 }
