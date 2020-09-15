@@ -25,20 +25,6 @@ export default class UserController extends BaseController<UserSchema> {
     } catch (e) {
       return res.status(404).json({ message: e.message, stack: e.stack });
     }
-    // let result = schemaValidator.validateCreateSchema({'username': req.body.username, 'password': req.body.password});
-    // if(result.error) {
-    //     return res.status(400).json({"Error": result.error.details[0].message});
-    // }
-    // let verify = await User.findOne({'username': req.body.username});
-    // console.log(verify);
-    // if (!verify) {
-    //     User.create({'username': req.body.username, 'password': req.body.password});
-    // } else {
-    //     return res.status(401).json({statusCode: 401, message: 'Usuário já existente.'});
-    // }
-    return res
-      .status(200)
-      .json({ statusCode: 200, message: "Usuário Criado com sucesso!" });
   }
 
   public async deleteUser(req: Request, res: Response) {

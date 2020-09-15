@@ -3,7 +3,6 @@ import { Container } from "inversify";
 import Server from "../server";
 import Router from "../api";
 import Mongo from "../database";
-import Middleware from "../api/middlewares";
 
 let container = new Container();
 
