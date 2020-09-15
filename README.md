@@ -22,6 +22,10 @@ Ready-to-Code template
 ### Typescript
 + Clone this project on your computer
 + Be sure you have started MongoDB service before running the application
-+ Navigate on project folder 
++ Navigate on project folder
 + Run ```npm run start``` on here to Transpile TS to JS and start the server.
 + You can open now send a Post request to localhost/api/createRoute with username, password and email.
+
+
+### Task List
+* [X] Use Express Chain of Responsability on routes.   # [checkbox:checked]
