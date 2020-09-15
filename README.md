@@ -27,7 +27,7 @@ Ready-to-Code template
 + You can open now send a Post request to localhost/api/createRoute with username, password and email.
 
 
-### Task List
+## Task List
 * [ ] Use Express Chain of Responsability on routes.
 * [ ] Refactor Routers to take full advantage of Chain of Responsability.
 * [ ] Refactor Inversify, so some classes constructors doesn't know eachother (@inject()).
