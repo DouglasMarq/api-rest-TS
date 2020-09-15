@@ -33,3 +33,4 @@ Ready-to-Code template
 * [ ] Refactor Inversify, so some classes constructors doesn't know eachother (@inject()).
 * [ ] Migrate Mongo Models locations (remove from api folder).
 * [ ] Migrate from mongoose to typegoose.
+* [ ] Create logger (Winston) for routes and etc.
