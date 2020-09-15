@@ -29,3 +29,5 @@ Ready-to-Code template
 
 ### Task List
 * [ ] Use Express Chain of Responsability on routes.
+* [ ] Refactor Routers to make full advantage of Chain of Responsabilities.
+* [ ] Refactor Inversify, so some classes constructors doesn't know eachother (@inject()).
