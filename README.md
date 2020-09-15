@@ -29,7 +29,7 @@ Ready-to-Code template
 
 ### Task List
 * [ ] Use Express Chain of Responsability on routes.
-* [ ] Refactor Routers to make full advantage of Chain of Responsability.
+* [ ] Refactor Routers to take full advantage of Chain of Responsability.
 * [ ] Refactor Inversify, so some classes constructors doesn't know eachother (@inject()).
 * [ ] Migrate Mongo Models locations (remove from api folder).
 * [ ] Migrate from mongoose to typegoose.
