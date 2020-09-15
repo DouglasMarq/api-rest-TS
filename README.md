@@ -28,4 +28,4 @@ Ready-to-Code template
 
 
 ### Task List
-* [X] Use Express Chain of Responsability on routes.   # [checkbox:checked]
+* [] Use Express Chain of Responsability on routes.
