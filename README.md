@@ -24,10 +24,11 @@ Ready-to-Code template
 + Be sure you have started MongoDB service before running the application
 + Navigate on project folder
 + Run ```npm run start``` on here to Transpile TS to JS and start the server.
-+ You can open now send a Post request to localhost/api/createRoute with username, password and email.
++ You can open now send a Post request to http://localhost:3000/api/createRoute with username, password and email.
 
 
 ## Task List
+* [ ] Implement JWT.
 * [ ] Use Express Chain of Responsability on routes.
 * [ ] Refactor Routers to take full advantage of Chain of Responsability.
 * [ ] Refactor Inversify, so some classes constructors doesn't know eachother (@inject()).
