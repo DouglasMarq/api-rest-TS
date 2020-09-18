@@ -1,13 +1,19 @@
-import { injectable } from "inversify";
-import { Request, Response } from "express";
+import { inject, injectable } from "inversify";
+import { application, Application, Request, Response } from "express";
 import UserController from "./user/userController";
+import Middleware from "../middlewares";
+import userSchema from "../schemas/user/userSchema";
 
 @injectable()
 export default class Controller {
   private readonly userController: UserController;
+  private readonly app: Application;
+  private readonly authMidd: Middleware<any>;
 
-  constructor() {
+  constructor(@inject(Middleware) authMidd: Middleware<any>) {
     this.userController = new UserController();
+    this.authMidd = authMidd;
+    this.app = application;
   }
 
   async create(req: Request, res: Response) {
