@@ -1,13 +1,13 @@
 import { Application, Router as newRouter } from "express";
-import {  injectable, inject } from "inversify";
+import {  injectable } from "inversify";
 import Controller from "./controller";
 
 @injectable()
 export default class Router {
   private readonly controller: Controller;
 
-  constructor(@inject(Controller) controller: Controller) {
-    this.controller = controller;
+  constructor() {
+    this.controller = new Controller();
   }
 
   loadRouters(app: Application) {
