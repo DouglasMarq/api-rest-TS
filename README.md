@@ -4,7 +4,7 @@ Ready-to-Code template
 ## Folder structure
 
 ### Typescript Back-end
-+ **server/src/bin/index.ts**: *File that is used to start the node server*
++ **server/src/index.ts**: *File that is used to start the node server*
 
 
 ## Prerequisites
