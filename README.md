@@ -11,7 +11,7 @@ Ready-to-Code template
 
 + **[Node.js & npm](https://nodejs.org/en/download/)**: *Please be sure you have installed Node.js and npm module on your computer before running the application*
 + **[MongoDB](https://www.mongodb.com/download-center)**: *Download & Install MongoDB, and make sure it's running on the default port (27017).*
-+ **[Typescript](https://www.typescriptlang.org/)**: *Is used to build back-end React application.*
++ **[Typescript](https://www.typescriptlang.org/)**: *Is used to build back-end application.*
 
 
 ## Usage
