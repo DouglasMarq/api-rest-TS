@@ -25,6 +25,7 @@ export default class baseSchema<T> {
           username: _.get(obj, "username"),
           password: _.get(obj, "password"),
           email: _.get(obj, "email"),
+          token: _.get(obj, "token")
         };
         return await this.user.validateSchema().validate(validate).error
           ?.details[0].message;

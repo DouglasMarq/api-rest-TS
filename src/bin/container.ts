@@ -7,20 +7,32 @@ import { Logger } from "winston";
 
 let container = new Container();
 
-export class bindContainers {
-  loadContainers() {
+export default function bindContainers() {
 
     // let logger = newLogger(config.get("logger.file"));
 
     container.bind<Server>(Server).to(Server).inSingletonScope();
     container.bind<Router>(Router).to(Router).inSingletonScope();
     container.bind<Mongo>(Mongo).to(Mongo).inSingletonScope();
+
+    return container;
     // container.bind<Logger>("logger").toConstantValue(logger);
   }
 
-  getContainer() {
-    return container;
-  }
-}
+// export class bindContainers {
+//   loadContainers() {
 
-export default new bindContainers();
+//     // let logger = newLogger(config.get("logger.file"));
+
+//     container.bind<Server>(Server).to(Server).inSingletonScope();
+//     container.bind<Router>(Router).to(Router).inSingletonScope();
+//     container.bind<Mongo>(Mongo).to(Mongo).inSingletonScope();
+//     // container.bind<Logger>("logger").toConstantValue(logger);
+//   }
+
+//   getContainer() {
+//     return container;
+//   }
+// }
+
+// export default new bindContainers();
