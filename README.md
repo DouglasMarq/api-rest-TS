@@ -26,7 +26,8 @@ Ready-to-Code template
 
 ## Task List
 * [x] Util folder to manage utilities.
-* [ ] Implement JWT.
+* [x] Implement JWT.
+* [ ] Routes use JWT Validation.
 * [ ] Use Express Chain of Responsability on routes.
 * [ ] Refactor Routers to take full advantage of Chain of Responsability.
 * [ ] Refactor Inversify, so some classes constructors doesn't know eachother (@inject()).
