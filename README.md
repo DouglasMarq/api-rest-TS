@@ -25,7 +25,7 @@ Ready-to-Code template
 
 
 ## Task List
-* [ ] Util folder to manage utilities.
+* [x] Util folder to manage utilities.
 * [ ] Implement JWT.
 * [ ] Use Express Chain of Responsability on routes.
 * [ ] Refactor Routers to take full advantage of Chain of Responsability.
