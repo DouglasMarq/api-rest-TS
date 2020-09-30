@@ -5,7 +5,7 @@ import { inject, injectable } from 'inversify';
 
 @injectable()
 export default class UserController {
-  constructor(@inject(UserService) public readonly userSvc: UserService) {}
+  constructor(@inject(UserService) private readonly userSvc: UserService) {}
 
   findUser = async (req: Request, res: Response) => {
     try {

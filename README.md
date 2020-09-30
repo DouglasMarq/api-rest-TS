@@ -28,10 +28,10 @@ Ready-to-Code template
 
 - [x] Util folder to manage utilities.
 - [x] Implement JWT.
-- [ ] Routes use JWT Validation.
-- [ ] Use Express Chain of Responsability on routes.
-- [ ] Refactor Routers to take full advantage of Chain of Responsability.
-- [ ] Refactor Inversify, so some classes constructors doesn't know eachother (@inject()).
-- [ ] Migrate Mongo Models locations (remove from api folder).
+- [x] Routes use JWT Validation.
+- [x] Use Express Chain of Responsability on routes.
+- [x] Refactor Routers to take full advantage of Chain of Responsability.
+- [x] Refactor Inversify, so some classes constructors doesn't know eachother (@inject()).
+- [x] Migrate Mongo Models locations (remove from api folder).
 - [ ] Migrate from mongoose to typegoose.
 - [ ] Create logger (Winston) for routes and etc.
