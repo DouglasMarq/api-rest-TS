@@ -1,5 +1,5 @@
-import BaseMiddleware from "./base";
-import { injectable } from "inversify";
+import BaseMiddleware from './base';
+import { injectable } from 'inversify';
 
 @injectable()
 export default class Middleware<T> extends BaseMiddleware<T> {

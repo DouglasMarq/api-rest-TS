@@ -1,5 +1,5 @@
-import "reflect-metadata";
-import baseSchema from "./base";
+import 'reflect-metadata';
+import baseSchema from './base';
 
 export default class Schemas<T> extends baseSchema<T> {
   constructor(type: new () => T) {

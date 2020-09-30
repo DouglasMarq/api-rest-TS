@@ -1,6 +1,6 @@
-import { Application, Router as newRouter } from "express";
-import {  injectable } from "inversify";
-import Controller from "./controller";
+import { Application, Router as newRouter } from 'express';
+import { injectable } from 'inversify';
+import Controller from './controller';
 
 @injectable()
 export default class Router {
@@ -41,7 +41,7 @@ export default class Router {
       throw err;
     }
 
-    app.use("/api", router);
+    app.use('/api', router);
     return router;
   }
 }

@@ -1,5 +1,5 @@
-import { injectable } from "inversify";
-import Schemas from "../schemas";
+import { injectable } from 'inversify';
+import Schemas from '../../database/schemas';
 
 @injectable()
 export default class BaseMiddleware<T> {

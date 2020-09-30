@@ -1,10 +1,10 @@
-import Service from "../../service";
-import Middleware from "../middlewares";
+import Service from '../../service';
+import Middleware from '../middlewares';
 
 export default class BaseController<T> extends Service<T> {
   private readonly middleware: Middleware<T>;
   constructor(type: new () => T) {
-    console.log("type in basecontroller", type, type.name);
+    console.log('type in basecontroller', type, type.name);
     super(type);
     this.middleware = new Middleware<T>(type);
   }
@@ -44,7 +44,7 @@ export default class BaseController<T> extends Service<T> {
       return res;
     }
     // vai para a service
-    console.log("indo para a service");
+    console.log('indo para a service');
     return await this.updateBaseEntity(obj)
       .then((res) => {
         return res;
@@ -61,7 +61,7 @@ export default class BaseController<T> extends Service<T> {
       return res;
     }
     // vai para a service
-    console.log("indo para a service");
+    console.log('indo para a service');
     return await this.deleteBaseEntity(obj)
       .then((res) => {
         return res;

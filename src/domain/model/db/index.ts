@@ -1,7 +1,7 @@
-import { injectable } from "inversify";
-import userModel from "./userSchema";
-import * as _ from "lodash";
-import { threadId } from "worker_threads";
+import { injectable } from 'inversify';
+import userModel from './userSchema';
+import * as _ from 'lodash';
+import { threadId } from 'worker_threads';
 
 @injectable()
 export default class databaseIndex {
@@ -13,7 +13,7 @@ export default class databaseIndex {
 
   public async create(obj: any) {
     switch (this._type) {
-      case "userModel":
+      case 'userModel':
         return await this.userModel.createUser(obj);
       default:
         break;
@@ -22,12 +22,9 @@ export default class databaseIndex {
 
   public async find(obj: any) {
     switch (this._type) {
-      case "userModel":
+      case 'userModel':
         return await this.userModel.findUser({
-          $or: [
-            { username: _.get(obj, "username") },
-            { email: _.get(obj, "email") },
-          ],
+          $or: [{ username: _.get(obj, 'username') }, { email: _.get(obj, 'email') }],
         });
       default:
         break;
@@ -36,7 +33,7 @@ export default class databaseIndex {
 
   public async list(obj: any) {
     switch (this._type) {
-      case "userModel":
+      case 'userModel':
         return await this.userModel.findUsers(obj);
       default:
         break;
@@ -44,7 +41,7 @@ export default class databaseIndex {
   }
   public async update(obj: any) {
     switch (this._type) {
-      case "userModel":
+      case 'userModel':
         return await this.userModel.updateUser(obj);
       default:
         break;
@@ -53,10 +50,10 @@ export default class databaseIndex {
 
   public async delete(obj: any) {
     switch (this._type) {
-      case "userModel":
+      case 'userModel':
         return await this.userModel.deleteUser({
-          username: _.get(obj, "username"),
-          password: _.get(obj, "password"),
+          username: _.get(obj, 'username'),
+          password: _.get(obj, 'password'),
         });
       default:
         break;
@@ -65,7 +62,7 @@ export default class databaseIndex {
 
   public async deleteMany(obj: any) {
     switch (this._type) {
-      case "userModel":
+      case 'userModel':
         return await this.userModel.deleteUsers(obj);
       default:
         break;

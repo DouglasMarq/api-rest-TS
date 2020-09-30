@@ -1,6 +1,6 @@
-import { injectable } from "inversify";
-import { Request, Response } from "express";
-import UserController from "./user/userController";
+import { injectable } from 'inversify';
+import { Request, Response } from 'express';
+import UserController from './user/userController';
 
 @injectable()
 export default class Controller {
@@ -13,7 +13,7 @@ export default class Controller {
   async create(req: Request, res: Response) {
     //@TODO change from request type to internal type
     switch (req.body.type) {
-      case "user":
+      case 'user':
         return await this.userController.createUser(req.body, res);
       default:
         break;
@@ -23,7 +23,7 @@ export default class Controller {
   async find(req: Request, res: Response) {
     //@TODO change from request type to internal type
     switch (req.body.type) {
-      case "user":
+      case 'user':
         return await this.userController.findUser(req.body, res);
       default:
         break;
@@ -33,7 +33,7 @@ export default class Controller {
   async update(req: Request, res: Response) {
     //@TODO change from request type to internal type
     switch (req.body.type) {
-      case "user":
+      case 'user':
         return await this.userController.updateUser(req.body, res);
       default:
         break;
@@ -42,7 +42,7 @@ export default class Controller {
   async delete(req: Request, res: Response) {
     //@TODO change from request type to internal type
     switch (req.body.type) {
-      case "user":
+      case 'user':
         return await this.userController.deleteUser(req.body, res);
       default:
         break;

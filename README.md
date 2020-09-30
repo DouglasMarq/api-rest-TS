@@ -1,36 +1,37 @@
 # Api-Rest-TS
+
 Ready-to-Code template
 
 ## Folder structure
 
 ### Typescript Back-end
-+ **server/src/index.ts**: *File that is used to start the node server*
 
+- **server/src/index.ts**: _File that is used to start the node server_
 
 ## Prerequisites
 
-+ **[Node.js & npm](https://nodejs.org/en/download/)**: *Please be sure you have installed Node.js and npm module on your computer before running the application*
-+ **[MongoDB](https://www.mongodb.com/download-center)**: *Download & Install MongoDB, and make sure it's running on the default port (27017).*
-+ **[Typescript](https://www.typescriptlang.org/)**: *Is used to build back-end application.*
-
+- **[Node.js & npm](https://nodejs.org/en/download/)**: _Please be sure you have installed Node.js and npm module on your computer before running the application_
+- **[MongoDB](https://www.mongodb.com/download-center)**: _Download & Install MongoDB, and make sure it's running on the default port (27017)._
+- **[Typescript](https://www.typescriptlang.org/)**: _Is used to build back-end application._
 
 ## Usage
 
 ### Typescript
-+ Clone this project on your computer
-+ Be sure you have started MongoDB service before running the application
-+ Navigate on project folder
-+ Run ```npm run start``` on here to Transpile TS to JS and start the server.
-+ You can open now send a Post request to http://localhost:3000/api/createRoute with username, password and email.
 
+- Clone this project on your computer
+- Be sure you have started MongoDB service before running the application
+- Navigate on project folder
+- Run `npm run start` on here to Transpile TS to JS and start the server.
+- You can open now send a Post request to http://localhost:3000/api/createRoute with username, password and email.
 
 ## Task List
-* [x] Util folder to manage utilities.
-* [x] Implement JWT.
-* [ ] Routes use JWT Validation.
-* [ ] Use Express Chain of Responsability on routes.
-* [ ] Refactor Routers to take full advantage of Chain of Responsability.
-* [ ] Refactor Inversify, so some classes constructors doesn't know eachother (@inject()).
-* [ ] Migrate Mongo Models locations (remove from api folder).
-* [ ] Migrate from mongoose to typegoose.
-* [ ] Create logger (Winston) for routes and etc.
+
+- [x] Util folder to manage utilities.
+- [x] Implement JWT.
+- [ ] Routes use JWT Validation.
+- [ ] Use Express Chain of Responsability on routes.
+- [ ] Refactor Routers to take full advantage of Chain of Responsability.
+- [ ] Refactor Inversify, so some classes constructors doesn't know eachother (@inject()).
+- [ ] Migrate Mongo Models locations (remove from api folder).
+- [ ] Migrate from mongoose to typegoose.
+- [ ] Create logger (Winston) for routes and etc.

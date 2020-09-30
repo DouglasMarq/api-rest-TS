@@ -1,4 +1,3 @@
-
 process.chdir(__dirname);
 
-import "./bin/index";
+import './bin/index';

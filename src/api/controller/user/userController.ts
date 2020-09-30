@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import UserSchema from "../../model/db/userSchema";
-import BaseController from ".././base";
-import * as _ from "lodash";
+import { Request, Response } from 'express';
+import UserSchema from '../../../domain/model/db/userSchema';
+import BaseController from '.././base';
+import * as _ from 'lodash';
 
 export default class UserController extends BaseController<UserSchema> {
   constructor() {
@@ -10,7 +10,7 @@ export default class UserController extends BaseController<UserSchema> {
 
   public async findUser(req: Request, res: Response) {
     try {
-      return res.status(200).json({ "message:": await this.getEntity(req) });
+      return res.status(200).json({ 'message:': await this.getEntity(req) });
     } catch (e) {
       return res.status(404).json({ message: e.message, stack: e.stack });
     }
@@ -20,8 +20,8 @@ export default class UserController extends BaseController<UserSchema> {
     try {
       let result = await this.createEntity(req);
       return res
-        .status(_.get(result, "code") || 404)
-        .json({ "message:": _.get(result, "message") });
+        .status(_.get(result, 'code') || 404)
+        .json({ 'message:': _.get(result, 'message') });
     } catch (e) {
       return res.status(404).json({ message: e.message, stack: e.stack });
     }
@@ -29,7 +29,7 @@ export default class UserController extends BaseController<UserSchema> {
 
   public async deleteUser(req: Request, res: Response) {
     try {
-      return res.status(200).json({ "message:": await this.deleteEntity(req) });
+      return res.status(200).json({ 'message:': await this.deleteEntity(req) });
     } catch (e) {
       return res.status(404).json({ message: e.message, stack: e.stack });
     }
@@ -37,7 +37,7 @@ export default class UserController extends BaseController<UserSchema> {
 
   public async updateUser(req: Request, res: Response) {
     try {
-      return res.status(200).json({ "message:": await this.updateEntity(req) });
+      return res.status(200).json({ 'message:': await this.updateEntity(req) });
     } catch (e) {
       return res.status(404).json({ message: e.message, stack: e.stack });
     }

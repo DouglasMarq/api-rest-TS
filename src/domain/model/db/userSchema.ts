@@ -1,8 +1,8 @@
-import { Schema, model } from "mongoose";
-import * as _ from "lodash";
+import { Schema, model } from 'mongoose';
+import * as _ from 'lodash';
 
 const userMod = model(
-  "users",
+  'users',
   new Schema({
     username: { type: String, required: true, index: true, unique: true },
     password: String,
@@ -34,11 +34,11 @@ export default class userModel {
   updateUser(obj: any) {
     return userMod.updateOne(
       {
-        username: _.get(obj, "username"),
+        username: _.get(obj, 'username'),
       },
       {
         $set: {
-          password: _.get(obj, "password"),
+          password: _.get(obj, 'password'),
         },
         safe: true,
         upsert: true,
