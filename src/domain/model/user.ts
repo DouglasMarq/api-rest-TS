@@ -27,11 +27,23 @@ export default class userModel {
   }
 
   findUser(obj: any) {
-    return userMod.findOne(obj);
+    return userMod.findOne(obj, {
+      username: 1,
+      email: 1,
+      _id: 0,
+    });
   }
 
-  findUsers(obj: any) {
-    return userMod.find(obj);
+  list(obj: any) {
+    return userMod.find(obj, {
+      username: 1,
+      email: 1,
+      _id: 0,
+    });
+  }
+
+  findUserById(id: string) {
+    return userMod.findById(id);
   }
 
   updateUser(obj: any) {
@@ -46,6 +58,11 @@ export default class userModel {
         safe: true,
         upsert: true,
         new: true,
+        projection: {
+          username: 1,
+          email: 1,
+          _id: 0,
+        },
       }
     );
   }
@@ -54,22 +71,11 @@ export default class userModel {
     return userMod.deleteOne(obj);
   }
 
-  deleteUserById(obj: any) {
-    return userMod.findByIdAndDelete(obj);
+  deleteUserById(id: string) {
+    return userMod.findByIdAndDelete(id);
   }
 
   deleteUsers(obj: any) {
     return userMod.deleteMany(obj);
   }
-}
-
-export function userValidation() {
-  return joi.object({
-    username: joi.string().min(6).max(32).required(),
-    password: joi.string().min(8).max(256).required(),
-    email: joi
-      .string()
-      .email({ tlds: { allow: true } })
-      .required(),
-  });
 }

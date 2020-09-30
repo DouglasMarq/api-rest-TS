@@ -8,4 +8,16 @@ export default class Service {
   async findUser(obj: any) {
     return await this.Model.userMod.findUser(obj);
   }
+
+  async createUser(obj: any) {
+    return await this.Model.userMod.createUser(obj);
+  }
+
+  async deleteUser(obj: any) {
+    return await this.Model.userMod.deleteUser(obj);
+  }
+
+  async updateUser(obj: any) {
+    return await this.Model.userMod.updateUser(obj);
+  }
 }
