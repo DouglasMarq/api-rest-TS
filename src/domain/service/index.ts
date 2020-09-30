@@ -1,9 +1,7 @@
-import { injectable } from 'inversify';
-import UserService from './user';
+import { inject, injectable } from 'inversify';
+import UserModel from '../model/user';
 
 @injectable()
-export default abstract class Service extends UserService {
-  constructor() {
-    super();
-  }
+export default abstract class Service {
+  constructor(@inject(UserModel) public readonly userMod: UserModel) {}
 }

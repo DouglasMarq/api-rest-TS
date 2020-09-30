@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import UserService from '../../domain/service/user';
 import * as _ from 'lodash';
 import { inject, injectable } from 'inversify';
@@ -9,7 +9,7 @@ export default class UserController {
 
   findUser = async (req: Request, res: Response) => {
     try {
-      return res.status(200).json({ 'message:': 'finding', payload: req.headers });
+      return res.status(200).json({ 'message:': await this.userSvc.findUser(req.body) });
     } catch (e) {
       return res.status(404).json({ message: e.message, stack: e.stack });
     }

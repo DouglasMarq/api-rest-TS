@@ -10,6 +10,7 @@ import Routers from '../api/router';
 import UserController from '../api/controller/user';
 import UserRouter from '../api/router/user';
 import UserModel from '../domain/model/user';
+import BaseModel from '../domain/model';
 
 let container = new Container();
 
@@ -25,6 +26,7 @@ export default function bindContainers() {
   container.bind<UserController>(UserController).to(UserController).inSingletonScope();
   container.bind<UserRouter>(UserRouter).to(UserRouter).inSingletonScope();
   container.bind<UserModel>(UserModel).to(UserModel).inSingletonScope();
+  container.bind<BaseModel>(BaseModel).to(BaseModel).inSingletonScope();
 
   return container;
   // container.bind<Logger>("logger").toConstantValue(logger);
