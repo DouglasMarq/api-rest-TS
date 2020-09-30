@@ -1,5 +1,7 @@
 import { Schema, model } from 'mongoose';
 import * as _ from 'lodash';
+import joi from 'joi';
+import { injectable } from 'inversify';
 
 const userMod = model(
   'users',
@@ -18,6 +20,7 @@ const userMod = model(
   })
 );
 
+@injectable()
 export default class userModel {
   createUser(obj: any) {
     return userMod.create(obj);
@@ -58,4 +61,15 @@ export default class userModel {
   deleteUsers(obj: any) {
     return userMod.deleteMany(obj);
   }
+}
+
+export function userValidation() {
+  return joi.object({
+    username: joi.string().min(6).max(32).required(),
+    password: joi.string().min(8).max(256).required(),
+    email: joi
+      .string()
+      .email({ tlds: { allow: true } })
+      .required(),
+  });
 }

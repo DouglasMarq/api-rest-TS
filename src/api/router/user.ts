@@ -1,8 +1,8 @@
 import { Application, Router as newRouter } from 'express';
 import { inject, injectable } from 'inversify';
-import { nextTick } from 'process';
 import Controller from '../controller';
 import AuthMiddleware from '../middlewares/auth';
+import UserValidationMiddleware from '../middlewares/userValidation';
 
 @injectable()
 export default class Router {
@@ -15,6 +15,7 @@ export default class Router {
   load(app: Application) {
     let router = newRouter();
     router.use(AuthMiddleware);
+    router.use(UserValidationMiddleware);
     router.get('/find', this.controller.userController.findUser);
     app.use(`/api/${this.controller.getEntity('user')}`, router);
     return router;

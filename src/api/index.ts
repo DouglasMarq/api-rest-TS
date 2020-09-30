@@ -1,5 +1,5 @@
 import { Application, Router as newRouter } from 'express';
-import { Container, inject, injectable } from 'inversify';
+import { inject, injectable } from 'inversify';
 import Controller from './controller';
 import Routers from './router';
 
