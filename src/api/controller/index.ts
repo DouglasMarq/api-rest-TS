@@ -1,51 +1,62 @@
-import { injectable } from 'inversify';
+import { inject, injectable } from 'inversify';
 import { Request, Response } from 'express';
-import UserController from './user/userController';
+import UserController from './user';
+import UserService from '../../domain/service/user';
+
+export enum entities {
+  USER = 'users',
+}
 
 @injectable()
 export default class Controller {
-  private readonly userController: UserController;
+  public app: any;
+  constructor(@inject(UserController) public readonly userController: UserController) {}
 
-  constructor() {
-    this.userController = new UserController();
-  }
-
-  async create(req: Request, res: Response) {
-    //@TODO change from request type to internal type
-    switch (req.body.type) {
+  getEntity(type: string) {
+    switch (type) {
       case 'user':
-        return await this.userController.createUser(req.body, res);
+        return entities.USER;
       default:
-        break;
+        return entities.USER;
     }
   }
 
-  async find(req: Request, res: Response) {
-    //@TODO change from request type to internal type
-    switch (req.body.type) {
-      case 'user':
-        return await this.userController.findUser(req.body, res);
-      default:
-        break;
-    }
-  }
+  create = async (req: Request, res: Response) => {
+    // //@TODO change from request type to internal type
+    // switch (req.body.type) {
+    //   case 'user':
+    //     return await this.userController.createUser(req.body, res);
+    //   default:
+    //     break;
+    // }
+  };
 
-  async update(req: Request, res: Response) {
+  find = async (req: Request, res: Response) => {
     //@TODO change from request type to internal type
-    switch (req.body.type) {
-      case 'user':
-        return await this.userController.updateUser(req.body, res);
-      default:
-        break;
-    }
-  }
-  async delete(req: Request, res: Response) {
+    // switch (req.body.type) {
+    //   case 'user':
+    //     return await this.userController.findUser(req.body, res);
+    //   default:
+    //     break;
+    // }
+  };
+
+  update = async (req: Request, res: Response) => {
     //@TODO change from request type to internal type
-    switch (req.body.type) {
-      case 'user':
-        return await this.userController.deleteUser(req.body, res);
-      default:
-        break;
-    }
-  }
+    // switch (req.body.type) {
+    //   case 'user':
+    //     return await this.userController.updateUser(req.body, res);
+    //   default:
+    //     break;
+    // }
+  };
+  delete = async (req: Request, res: Response) => {
+    //@TODO change from request type to internal type
+    // switch (req.body.type) {
+    //   case 'user':
+    //     return await this.userController.deleteUser(req.body, res);
+    //   default:
+    //     break;
+    // }
+  };
 }

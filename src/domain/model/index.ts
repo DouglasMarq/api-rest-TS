@@ -1,5 +1,5 @@
 import { injectable } from 'inversify';
-import userModel from './userSchema';
+import userModel from './user';
 import * as _ from 'lodash';
 import { threadId } from 'worker_threads';
 

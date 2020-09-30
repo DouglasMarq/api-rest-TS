@@ -5,6 +5,9 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import { injectable, inject } from 'inversify';
 import Router from '../api';
+import compression from 'compression';
+import helmet from 'helmet';
+import enforcesSsl from 'express-enforces-ssl';
 
 @injectable()
 export default class Server {
@@ -14,10 +17,15 @@ export default class Server {
   constructor(@inject(Router) router: Router) {
     let app = (this.app = express());
 
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(cors());
+    app.enabled('trust proxy');
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ extended: false, limit: '50mb' }));
+    app.use(compression());
+    app.use(helmet({ frameguard: false }));
+    app.use(cors({ origin: '*', credentials: true }));
+    // app.use(enforcesSsl());
 
+    app.enabled('trust proxy');
     app.use(router.loadRouters(app));
 
     app.use((req: Request, res: Response, next: NextFunction) => {
