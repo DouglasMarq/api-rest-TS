@@ -20,7 +20,7 @@ export default class Router {
     router.get('/read', this.controller.userController.findUser);
     router.patch('/update', this.controller.userController.updateUser);
     router.delete('/delete', this.controller.userController.deleteUser);
-    app.use(`/api/${this.controller.getEntity('user')}`, router);
+    app.use(`/api/users`, router);
     return router;
   }
 }

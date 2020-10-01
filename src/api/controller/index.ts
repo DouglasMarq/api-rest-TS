@@ -9,13 +9,4 @@ export enum entities {
 export default class Controller {
   public app: any;
   constructor(@inject(UserController) public readonly userController: UserController) {}
-
-  getEntity(type: string) {
-    switch (type) {
-      case 'user':
-        return entities.USER;
-      default:
-        return entities.USER;
-    }
-  }
 }
