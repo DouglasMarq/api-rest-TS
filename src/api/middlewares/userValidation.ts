@@ -4,8 +4,6 @@ import joi from 'joi';
 export default function UserValidationMiddleware(req: Request, res: Response, next: NextFunction) {
   //@TODO Remove next -- debug purpose
   try {
-    // let { username, password, email } = req.body;
-
     let res = joi
       .object({
         username: joi.string().min(6).max(32).required(),

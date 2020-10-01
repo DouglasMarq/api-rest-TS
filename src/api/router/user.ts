@@ -6,11 +6,7 @@ import UserValidationMiddleware from '../middlewares/userValidation';
 
 @injectable()
 export default class Router {
-  //   readonly middleware: AuthMiddleware;
-
-  constructor(@inject(Controller) public readonly controller: Controller) {
-    // this.middleware = AuthMiddleware;
-  }
+  constructor(@inject(Controller) public readonly controller: Controller) {}
 
   load(app: Application) {
     let router = newRouter();
