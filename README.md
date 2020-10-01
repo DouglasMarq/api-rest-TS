@@ -35,3 +35,4 @@ Ready-to-Code template
 - [x] Migrate Mongo Models locations (remove from api folder).
 - [ ] Migrate from mongoose to typegoose.
 - [ ] Create logger (Winston) for routes and etc.
+- [ ] Refactor Mongo access.
