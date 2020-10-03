@@ -13,7 +13,7 @@ export default class Router {
     router.use(AuthMiddleware);
     router.use(UserValidationMiddleware);
     router.post('/create', this.controller.userController.createUser);
-    router.get('/read', this.controller.userController.findUser);
+    router.post('/read', this.controller.userController.findUser);
     router.patch('/update', this.controller.userController.updateUser);
     router.delete('/delete', this.controller.userController.deleteUser);
     app.use(`/api/users`, router);
