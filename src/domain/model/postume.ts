@@ -2,8 +2,8 @@ import { Schema, model } from 'mongoose';
 import * as _ from 'lodash';
 import { injectable } from 'inversify';
 
-const userMod = model(
-  'users',
+const postumeMod = model(
+  'postumes',
   new Schema({
     username: { type: String, required: true, index: true, unique: true },
     password: String,
@@ -20,13 +20,13 @@ const userMod = model(
 );
 
 @injectable()
-export default class userModel {
-  createUser(obj: any) {
-    return userMod.create(obj);
+export default class postumeModel {
+  createPostume(obj: any) {
+    return postumeMod.create(obj);
   }
 
-  findUser(obj: any) {
-    return userMod.findOne(obj, {
+  findPostume(obj: any) {
+    return postumeMod.findOne(obj, {
       username: 1,
       email: 1,
       _id: 0,
@@ -34,19 +34,19 @@ export default class userModel {
   }
 
   list(obj: any) {
-    return userMod.find(obj, {
+    return postumeMod.find(obj, {
       username: 1,
       email: 1,
       _id: 0,
     });
   }
 
-  findUserById(id: string) {
-    return userMod.findById(id);
+  findPostumeById(id: string) {
+    return postumeMod.findById(id);
   }
 
-  updateUser(obj: any) {
-    return userMod.updateOne(
+  updatePostume(obj: any) {
+    return postumeMod.updateOne(
       {
         username: _.get(obj, 'username'),
       },
@@ -66,15 +66,15 @@ export default class userModel {
     );
   }
 
-  deleteUser(obj: any) {
-    return userMod.deleteOne(obj);
+  deletePostume(obj: any) {
+    return postumeMod.deleteOne(obj);
   }
 
-  deleteUserById(id: string) {
-    return userMod.findByIdAndDelete(id);
+  deletePostumeById(id: string) {
+    return postumeMod.findByIdAndDelete(id);
   }
 
-  deleteUsers(obj: any) {
-    return userMod.deleteMany(obj);
+  deletePostumes(obj: any) {
+    return postumeMod.deleteMany(obj);
   }
 }
