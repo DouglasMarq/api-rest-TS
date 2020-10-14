@@ -8,7 +8,6 @@ export default class PostumeController {
   constructor(@inject(PostumeService) private readonly postumeSvc: PostumeService) {}
 
   findPostume = async (req: Request, res: Response) => {
-      console.log("chegando req:::", req);
     try {
       return res.status(200).json({ 'message:': await this.postumeSvc.findPostume(req.body) });
     } catch (e) {

@@ -8,7 +8,6 @@ export default class UserController {
   constructor(@inject(UserService) private readonly userSvc: UserService) {}
 
   findUser = async (req: Request, res: Response) => {
-      console.log("chegando req:::", req);
     try {
       return res.status(200).json({ 'message:': await this.userSvc.findUser(req.body) });
     } catch (e) {
