@@ -37,23 +37,4 @@ export default function bindContainers() {
   container.bind<BaseModel>(BaseModel).to(BaseModel).inSingletonScope();
 
   return container;
-  // container.bind<Logger>("logger").toConstantValue(logger);
 }
-
-// export class bindContainers {
-//   loadContainers() {
-
-//     // let logger = newLogger(config.get("logger.file"));
-
-//     container.bind<Server>(Server).to(Server).inSingletonScope();
-//     container.bind<Router>(Router).to(Router).inSingletonScope();
-//     container.bind<Mongo>(Mongo).to(Mongo).inSingletonScope();
-//     // container.bind<Logger>("logger").toConstantValue(logger);
-//   }
-
-//   getContainer() {
-//     return container;
-//   }
-// }
-
-// export default new bindContainers();
