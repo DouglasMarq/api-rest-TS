@@ -5,8 +5,11 @@ import { injectable } from 'inversify';
 const postumeMod = model(
   'postumes',
   new Schema({
-    username: { type: String, required: true, index: true, unique: true },
-    password: String,
+    topic: { type: String, required: true, index: true },
+    briefing: { type: String, required: false },
+    description: { type: String, required: true },
+    edited: { type: Boolean, required: false, default: false },
+    createdBy: { type: String, required: true, index: true },
     createdAt: {
       type: Date,
       default: new Date(),
@@ -14,8 +17,7 @@ const postumeMod = model(
     updatedAt: {
       type: Date,
       default: new Date(),
-    },
-    email: { type: String, required: true, index: true, unique: true },
+    }
   })
 );
 
