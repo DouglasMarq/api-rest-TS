@@ -30,7 +30,7 @@ export default class userModel {
       username: 1,
       email: 1,
       _id: 0,
-    });
+    }).lean();
   }
 
   list(obj: any) {
@@ -38,11 +38,11 @@ export default class userModel {
       username: 1,
       email: 1,
       _id: 0,
-    });
+    }).lean();
   }
 
   findUserById(id: string) {
-    return userMod.findById(id);
+    return userMod.findById(id).lean();
   }
 
   updateUser(obj: any) {
@@ -71,7 +71,7 @@ export default class userModel {
   }
 
   deleteUserById(id: string) {
-    return userMod.findByIdAndDelete(id);
+    return userMod.findByIdAndDelete(id).lean();
   }
 
   deleteUsers(obj: any) {
