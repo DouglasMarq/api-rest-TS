@@ -24,7 +24,7 @@ export default class Mongo {
           console.log(err);
           disconnect();
         } else {
-          console.log(`MongoDB succesfully started at port ${config.get('database.main.port')}`);
+          console.log(`MongoDB succesfully connected at port ${config.get('database.main.port')}`);
         }
       }
     );
